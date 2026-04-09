@@ -4,4 +4,9 @@
     <button routerLink="expenses">View Expenses</button>
     <router-outlet></router-outlet>
 </nav>
-
+<div class="container">
+  <hr class="mx-auto w-50" />
+  @for (expense of expenseService.expenses(); track expense.id) {
+    <app-expense-item [expense]="expense"></app-expense-item>
+  }
+</div>

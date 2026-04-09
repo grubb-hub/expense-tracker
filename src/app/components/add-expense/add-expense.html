@@ -1,1 +1,46 @@
-<p>add-expense works!</p>
+<div class="container">
+  <div class="card mx-auto w-50 my-2">
+    <div class="card-body">
+      <!-- Title -->
+      <div class="form-group">
+        <label><h5>Task Name:</h5></label>
+        <input
+          type="text"
+          class="form-control"
+          #expenseName
+          [class.is-invalid]="showWarning()"
+          (input)="showWarning.set(false)"
+        />
+      </div>
+
+      <!-- Amount -->
+      <div class="form-group mt-2">
+        <label><h5>Amount:</h5></label>
+        <input type="number" class="form-control" #expenseAmount />
+      </div>
+
+      <!-- Category -->
+      <div class="form-group mt-2">
+        <label><h5>Category:</h5></label>
+        <select class="form-control" #expenseCategory>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Grocery">Grocery</option>
+        </select>
+      </div>
+
+      <div *ngIf="showWarning()" class="invalid-feedback d-block">
+        Task Name is required!
+      </div>
+
+      <button
+        class="btn btn-primary mt-3"
+        (click)="onCreateExpense(expenseName, expenseAmount, expenseCategory)"
+      >
+        Add Task
+      </button>
+
+    <!-- <p class="mt-2">Count of Tasks: {{ expenseService.expenseCount()() }}</p> -->
+    </div>
+  </div>
+</div>

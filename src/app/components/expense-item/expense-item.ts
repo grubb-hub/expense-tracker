@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
+import { ExpenseService } from '../../services/expense-service';
+import { Expense } from '../../models/expense';
 
 @Component({
   selector: 'app-expense-item',
@@ -7,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './expense-item.css',
 })
 export class ExpenseItem {
+  expense = input.required<{ id: string, title: string; amount: number; category: string }>();
+  expenseService = inject(ExpenseService);
 
 }
