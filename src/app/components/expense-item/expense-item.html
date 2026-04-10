@@ -9,14 +9,7 @@
         <br />
 
         Category:
-        <span
-          class="category"
-          [ngClass]="{
-            work: expense().category === 'work',
-            personal: expense().category === 'personal',
-            grocery: expense().category === 'grocery',
-          }"
-        >
+        <span class="category">
           {{ expense().category }}
         </span>
       </p>

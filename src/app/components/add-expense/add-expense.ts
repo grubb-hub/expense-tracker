@@ -33,7 +33,7 @@ export class AddExpense {
     }
 
     // Add the new expense
-    this.expenseService.addExpense(title, amount, category);
+    this.expenseService.addExpense(title, amount, category, );
 
     // Reset the input fields
     expenseInput.value = '';
