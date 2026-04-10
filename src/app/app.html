@@ -1,8 +1,10 @@
 <nav class="navbar fixed-top dashboard">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Expense Tracker</a>
+    <a class="navbar-brand" routerLink="">Expense Tracker</a>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-primary me-md-2 btn-style" type="button" routerLink="">Dashbaord</button>
+      <button class="btn btn-primary me-md-2 btn-style" type="button" routerLink="">
+        Dashbaord
+      </button>
       <button class="btn btn-primary btn-style" type="button" routerLink="add">Add Expense</button>
       <button class="btn btn-primary btn-style" type="button" routerLink="expenses">
         View Expense
@@ -10,5 +12,6 @@
     </div>
   </div>
 </nav>
-
-<router-outlet></router-outlet>
+<div>
+  <router-outlet></router-outlet>
+</div>
