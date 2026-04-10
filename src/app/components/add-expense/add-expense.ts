@@ -3,42 +3,42 @@ import { RouterLink } from "@angular/router";
 import { Expense } from '../../models/expense';
 import { ExpenseService } from '../../services/expense-service';
 import { ExpenseCategory } from '../../models/expense';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-expense',
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   templateUrl: './add-expense.html',
   styleUrl: './add-expense.css',
 })
 
 export class AddExpense {
+
   expenseService = inject(ExpenseService);
-  showWarning = signal<boolean>(false); // signal to manage inline warning
+  showWarning = signal<boolean>(false);
 
-  constructor() {}
+  title: string = '';
+  amount: number = 0;
+  category: ExpenseCategory = 'Work';
 
-  // Updated to accept amount and category
-  onCreateExpense(
-    expenseInput: HTMLInputElement,
-    amountInput: HTMLInputElement,
-    categorySelect: HTMLSelectElement
-  ) {
-    const title = expenseInput.value.trim();
-    const amount = parseFloat(amountInput.value) || 1; // default 1 if empty
-    const category = categorySelect.value as ExpenseCategory;
+  addExpense() {
+    const trimmedTitle = this.title.trim();
 
-    if (!title) {
-      this.showWarning.set(true); // show inline warning
+    if (!trimmedTitle) {
+      this.showWarning.set(true);
       return;
     }
 
-    // Add the new expense
-    this.expenseService.addExpense(title, amount, category, );
+    this.expenseService.addExpense(
+      trimmedTitle,
+      this.amount || 1,
+      this.category
+    );
 
-    // Reset the input fields
-    expenseInput.value = '';
-    amountInput.value = '';
-    categorySelect.value = 'Work'; // default category
+    // reset form
+    this.title = '';
+    this.amount = 0;
+    this.category = 'Work';
     this.showWarning.set(false);
   }
 }

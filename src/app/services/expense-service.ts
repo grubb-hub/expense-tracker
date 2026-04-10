@@ -1,6 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { Expense } from '../models/expense';
 import { ExpenseItem} from '../components/expense-item/expense-item';
+import { ExpenseCategory } from '../models/expense';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,18 @@ export class ExpenseService {
    expenses = signal<Expense[]>([]); //signal used for reactive updates
    expenseCount =  computed(() => this.expenses().length)
 
-   addExpense(title: string, amount: number, category: 'Work' | 'Personal' | 'Grocery') {
+    catagories = signal<ExpenseCategory[]>([
+    'Work',
+    'Personal',
+    'Grocery',
+    'Utilities',
+    'Shopping',
+    'Travel',
+    'Food',
+
+   ])
+
+   addExpense(title: string, amount: number, category: ExpenseCategory) {
     const newExpense: Expense = {
     id: this.generateExpenseId(),
     title,

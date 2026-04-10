@@ -5,8 +5,8 @@
       <h5 class="mb-1">{{ expense().title }}</h5>
 
       <p class="mb-0">
-        Amount: <strong>${{ expense().amount }}</strong>
-        <br />
+        Amount:
+        <strong [class.text-danger]="isHighExpense()">${{ expense().amount }}</strong>
 
         Category:
         <span [style.background-color]="categoryColor()" [style.color]="'white'">

@@ -7,7 +7,8 @@
         <input
           type="text"
           class="form-control"
-          #expenseName
+          [(ngModel)]="title"
+          name="title"
           [class.is-invalid]="showWarning()"
           (input)="showWarning.set(false)"
         />
@@ -16,26 +17,24 @@
       <!-- Amount -->
       <div class="form-group mt-2">
         <label><h5 class="input-brand">Amount:</h5></label>
-        <input type="number" class="form-control" #expenseAmount />
+        <input type="number" class="form-control" [(ngModel)]="amount" name="amount" />
       </div>
 
       <!-- Category -->
       <div class="form-group mt-2">
         <label><h5 class="input-brand">Category:</h5></label>
-        <select class="form-control" #expenseCategory>
-          <option value="Work">Work</option>
-          <option value="Personal">Personal</option>
-          <option value="Grocery">Grocery</option>
+        <select class="form-control" [(ngModel)]="category" name="category">
+          @for (cat of expenseService.catagories(); track cat) {
+            <option [value]="cat">{{ cat }}</option>
+          }
         </select>
       </div>
 
       <div *ngIf="showWarning()" class="invalid-feedback d-block">Task Name is required!</div>
 
       <div class="d-grid gap-2">
-        <button class="btn btn-primary btn-style" type="button" (click)="onCreateExpense(expenseName, expenseAmount, expenseCategory)">Add Task</button>
+        <button class="btn btn-primary btn-style" (click)="addExpense()">Add Task</button>
       </div>
-
-      <!-- <p class="mt-2">Count of Tasks: {{ expenseService.expenseCount()() }}</p> -->
     </div>
   </div>
 </div>
