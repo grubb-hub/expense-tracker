@@ -1,1 +1,6 @@
-<p>expense-list works!</p>
+<div class="container">
+  <hr class="mx-auto w-50" />
+  @for (expense of expenseService.expenses(); track expense.id) {
+    <app-expense-item [expense]="expense"></app-expense-item>
+  }
+</div>

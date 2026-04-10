@@ -1,9 +1,9 @@
 <div class="container">
   <div class="card mx-auto w-50 my-2">
     <div class="card-body">
-      <!-- Title -->
+      <h1 class="text-center">Add Task</h1>
       <div class="form-group">
-        <label><h5>Task Name:</h5></label>
+        <label><h5 class="input-brand">Task Name:</h5></label>
         <input
           type="text"
           class="form-control"
@@ -15,13 +15,13 @@
 
       <!-- Amount -->
       <div class="form-group mt-2">
-        <label><h5>Amount:</h5></label>
+        <label><h5 class="input-brand">Amount:</h5></label>
         <input type="number" class="form-control" #expenseAmount />
       </div>
 
       <!-- Category -->
       <div class="form-group mt-2">
-        <label><h5>Category:</h5></label>
+        <label><h5 class="input-brand">Category:</h5></label>
         <select class="form-control" #expenseCategory>
           <option value="Work">Work</option>
           <option value="Personal">Personal</option>
@@ -29,18 +29,13 @@
         </select>
       </div>
 
-      <div *ngIf="showWarning()" class="invalid-feedback d-block">
-        Task Name is required!
+      <div *ngIf="showWarning()" class="invalid-feedback d-block">Task Name is required!</div>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary btn-style" type="button" (click)="onCreateExpense(expenseName, expenseAmount, expenseCategory)">Add Task</button>
       </div>
 
-      <button
-        class="btn btn-primary mt-3"
-        (click)="onCreateExpense(expenseName, expenseAmount, expenseCategory)"
-      >
-        Add Task
-      </button>
-
-    <!-- <p class="mt-2">Count of Tasks: {{ expenseService.expenseCount()() }}</p> -->
+      <!-- <p class="mt-2">Count of Tasks: {{ expenseService.expenseCount()() }}</p> -->
     </div>
   </div>
 </div>

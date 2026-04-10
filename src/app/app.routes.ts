@@ -18,12 +18,12 @@ export const routes: Routes = [
     },
     {
         path: 'expenses',
-        component: EditExpense,
-        title: 'EditExpense'
+        component: ExpenseList,
+        title: 'ExpenseList'
     },
     {
         path: 'edit',
         component: EditExpense,
-        title: 'Dashboard'
+        title: 'editExpense'
     }
 ];

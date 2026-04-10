@@ -1,3 +1,20 @@
 .container {
   margin-top: 30px;
 }
+
+.btn-style {
+  background-color: #2f3a55 ;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.dashboard{
+  background-color: #5c6b8a;
+}
+
+.navbar-brand {
+  color: #F5F6F3 !important;
+  font-size: 30px;
+}

@@ -13,8 +13,6 @@ import { ExpenseItem } from './components/expense-item/expense-item';
   styleUrl: './app.css'
 })
 export class App {
-  expenseService = inject(ExpenseService);
-
    trackById(index: number, item: any) {
     return item.id;
   }

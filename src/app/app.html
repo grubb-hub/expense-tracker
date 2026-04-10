@@ -1,12 +1,14 @@
-<nav>
-    <button routerLink="">Dashbaord</button>
-    <button routerLink="add">Add Expense</button>
-    <button routerLink="expenses">View Expenses</button>
-    <router-outlet></router-outlet>
+<nav class="navbar fixed-top dashboard">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Expense Tracker</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2 btn-style" type="button" routerLink="">Dashbaord</button>
+      <button class="btn btn-primary btn-style" type="button" routerLink="add">Add Expense</button>
+      <button class="btn btn-primary btn-style" type="button" routerLink="expenses">
+        View Expense
+      </button>
+    </div>
+  </div>
 </nav>
-<div class="container">
-  <hr class="mx-auto w-50" />
-  @for (expense of expenseService.expenses(); track expense.id) {
-    <app-expense-item [expense]="expense"></app-expense-item>
-  }
-</div>
+
+<router-outlet></router-outlet>

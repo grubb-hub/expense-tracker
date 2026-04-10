@@ -1,0 +1,39 @@
+.expense-card {
+  border: 2px solid #2f3a55;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.expense-card:hover {
+  transform: scale(1.02);
+}
+
+.edit-button {
+    background-color: #5c6b8a;
+    color: white;
+}
+
+.category {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.amount{
+    color: #9daa7f;
+}
+
+.work {
+    background-color: #2f3a55 !important;
+    color: white;
+}
+
+.personal {
+    background-color: #9daa7f !important;
+    color: white;
+}
+
+.grocery {
+    background-color: #5c6b8a !important;
+    color: white;
+}

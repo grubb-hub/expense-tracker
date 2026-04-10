@@ -5,5 +5,5 @@
   category: ExpenseCategory;
 }
 
-export type ExpenseCategory = 'Work' | 'Personal' |'Grocery';
+export type ExpenseCategory = 'Work' | 'Personal' |'Grocery' | 'Utilities' | 'Shopping' | 'Travel' | 'Food';
 

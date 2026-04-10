@@ -13,20 +13,26 @@ export class ExpenseService {
 
    addExpense(title: string, amount: number, category: 'Work' | 'Personal' | 'Grocery') {
     const newExpense: Expense = {
-      id: this.generateExpenseId(),
-      title,
-      amount,
-      category,
+    id: this.generateExpenseId(),
+    title,
+    amount,
+    category,
   };
   this.expenses.update(expenses => [...expenses, newExpense]);
 }
 
-  //  deleteExpense(expenseId: string){
-  //   this.expenses.update((expenses) => expenses.filter((ex)))
-  //  }
+   deleteExpense(expenseId: string){
+    this.expenses.update((expenses) => expenses.filter((expense) => expense.id != expenseId))
+   }
 
   //private method to generate task id
   private generateExpenseId = () => {
   return 'task-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
 };
+
+  totalExpenses = computed(() => this.expenses().reduce((sum, e) => sum + e.amount, 0));
+
+  highestExpense = computed(() => this.expenses().reduce((max,e) => e.amount > max ? e.amount : max, 0) );
+
+  averageExpense = computed(() => this.expenses().length === 0 ? 0 : this.totalExpenses() / this.expenses().length);
 }

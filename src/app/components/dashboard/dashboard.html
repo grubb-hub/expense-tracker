@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+<div class="container text-center mt-4">
+
+  <h2 class="dashboard-text">Dashboard</h2>
+
+  <div class="card my-2 p-3 card-style2">
+    <h4>Total Expenses</h4>
+    <p class="card-num">${{ expenseService.totalExpenses() }}</p>
+  </div>
+
+  <div class="card my-2 p-3 card-style">
+    <h4>Number of Expenses</h4>
+    <p class="card-num">{{ expenseService.expenseCount() }}</p>
+  </div>
+
+  <div class="card my-2 p-3 card-style">
+    <h4>Highest Expense</h4>
+    <p class="card-num">${{ expenseService.highestExpense() }}</p>
+  </div>
+
+  <div class="card my-2 p-3 card-style">
+    <h4>Average Expense</h4>
+    <p class="card-num">${{ expenseService.averageExpense() }}</p>
+  </div>
+
+</div>
